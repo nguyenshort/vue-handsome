@@ -61,7 +61,7 @@
 
     </preview>
 
-    <preview title="Alert">
+    <preview v-if="false" title="Alert">
       <div>
         <vm-alert>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex maxime suscipit ut veritatis. Ab amet culpa doloribus eius ipsam nemo nostrum obcaecati quasi, voluptas voluptatum. Esse explicabo facilis tempore!
@@ -111,6 +111,82 @@
       </div>
     </preview>
 
+    <preview title="Avatar">
+
+      <vm-avatar text="Lily" primary></vm-avatar>
+      <vm-avatar text="Evan You"></vm-avatar>
+
+      <vm-avatar>
+        <img src="https://vuesax.com/avatars/avatar-5.png" alt="">
+      </vm-avatar>
+
+      <vm-avatar loading>
+        <img src="https://vuesax.com/avatars/avatar-5.png" alt="">
+      </vm-avatar>
+
+      <vm-avatar history success>
+        <img src="https://vuesax.com/avatars/avatar-3.png" alt="">
+      </vm-avatar>
+
+      <vm-avatar danger square badge writing badge-color="success">
+        <img src="https://vuesax.com/avatars/avatar-3.png" alt="">
+      </vm-avatar>
+
+      <vm-avatar circle badge badge-color="warn" badge-position="top-right">
+        <img src="https://vuesax.com/avatars/avatar-5.png" alt="">
+      </vm-avatar>
+
+      <vm-avatar writing primary>
+        <img src="https://vuesax.com/avatars/avatar-3.png" alt="">
+      </vm-avatar>
+
+
+      <vm-avatar>
+        <img src="https://vuesax.com/avatars/avatar-1.png" alt="">
+        <template #icons>
+          <i class='bx bxl-facebook-square' ></i>
+          <i class='bx bxl-github' ></i>
+          <i class='bx bxl-twitter' ></i>
+        </template>
+      </vm-avatar>
+
+    </preview>
+
+    <preview title="Avatar Group">
+      <vm-avatar-group :max="7">
+        <vm-avatar>
+          <img src="https://vuesax.com/avatars/avatar-1.png" alt="">
+        </vm-avatar>
+        <vm-avatar>
+          <img src="https://vuesax.com/avatars/avatar-6.png" alt="">
+        </vm-avatar>
+        <vm-avatar>
+          <img src="https://vuesax.com/avatars/avatar-2.png" alt="">
+        </vm-avatar>
+        <vm-avatar>
+          <img src="https://vuesax.com/avatars/avatar-7.png" alt="">
+        </vm-avatar>
+        <vm-avatar>
+          <img src="https://vuesax.com/avatars/avatar-3.png" alt="">
+        </vm-avatar>
+        <vm-avatar>
+          <img src="https://vuesax.com/avatars/avatar-8.png" alt="">
+        </vm-avatar>
+        <vm-avatar>
+          <img src="https://vuesax.com/avatars/avatar-4.png" alt="">
+        </vm-avatar>
+        <vm-avatar>
+          <img src="https://vuesax.com/avatars/avatar-9.png" alt="">
+        </vm-avatar>
+        <vm-avatar>
+          <img src="https://vuesax.com/avatars/avatar-5.png" alt="">
+        </vm-avatar>
+        <vm-avatar>
+          <img src="https://vuesax.com/avatars/avatar-10.png" alt="">
+        </vm-avatar>
+      </vm-avatar-group>
+    </preview>
+
   </div>
 </template>
 
@@ -119,6 +195,8 @@ import Preview from '@components/heplers/Preview.vue'
 import VmButton from "@components/Button/Base/VmButton.vue";
 import VmAlert from "@components/Alert/Base/VmAlert.vue"
 import {ref} from "vue";
+import VmAvatar from "@components/Avatar/Base/VmAvatar.vue";
+import VmAvatarGroup from "@components/Avatar/Group/VmAvatarGroup.vue";
 
 const closeAlert = ref(true)
 const destroyAlert = ref(true)
