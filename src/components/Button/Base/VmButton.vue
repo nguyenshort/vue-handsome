@@ -1,5 +1,5 @@
 <template>
-  <button class="vm-button" :class="buttonClass" :style="design.style">
+  <button class="vm-button" :class="buttonClass" :style="design.style" @mousedown="onClickHandle($event)">
     <div class="vm-button__content">
       <slot></slot>
     </div>
@@ -19,6 +19,7 @@ interface VmButtonProps extends VmProps {
   primary?: boolean
   active?: boolean
 
+  ripple?: 'reverse' | 'cut'
   flat?: boolean
   border?: boolean
   gradient?: boolean
@@ -35,15 +36,16 @@ interface VmButtonProps extends VmProps {
   block?: boolean
 }
 const props = withDefaults(defineProps<VmButtonProps>(), {
-  size: 'default'
+  size: 'default',
+  ripple: ''
 })
 
 import useDesign from "@composables/useDesign"
-import {computed, useSlots} from "vue";
+import {computed} from "vue";
+import ripple, {rippleCut, rippleReverse} from "@util/ripple";
+import {useCurrentElement} from "@vueuse/core";
 
 const design = useDesign(props)
-
-const slots = useSlots()
 
 const buttonClass = computed(() => ([
   ...design.value.color,
@@ -68,6 +70,33 @@ const buttonClass = computed(() => ([
   { [`vm-button--square`] : props.square },
   { [`vm-button--circle`] : props.circle },
 ]))
+
+const el = useCurrentElement()
+
+const onClickHandle = (evt: EventTarget) => {
+  if (props.ripple === 'reverse') {
+    rippleReverse(evt)
+  } else if (props.ripple === 'cut') {
+    rippleCut(evt)
+  } else {
+    if (props.flat) {
+      ripple(
+          evt,
+          (props.color || 'primary') &&
+          !props.active &&
+          document.activeElement !== el.value ? 'inherit' :
+              null,
+          props.flat && !props.active && document.activeElement !== el.value
+      )
+    } else {
+      ripple(
+          evt,
+          null,
+          false
+      )
+    }
+  }
+}
 
 </script>
 

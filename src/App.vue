@@ -1,8 +1,8 @@
 <template>
   <div class="preview">
-    <preview v-if="false" title="Button">
+    <preview title="Button">
       <VmButton>Normal</VmButton>
-      <VmButton active>Active</VmButton>
+      <VmButton active ripple="cut">Active</VmButton>
       <VmButton disabled>Disabled</VmButton>
       <VmButton flat>Flat</VmButton>
       <VmButton flat active success>Flat Active</VmButton>
