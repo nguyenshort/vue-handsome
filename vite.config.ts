@@ -9,7 +9,8 @@ export default defineConfig({
     alias: {
       '@components': path.resolve(__dirname, './src/components'),
       '@composables': path.resolve(__dirname, './src/composables'),
-      '@util': path.resolve(__dirname, './src/util')
+      '@util': path.resolve(__dirname, './src/util'),
+      '@icons': path.resolve(__dirname, './src/icons')
     }
   },
   plugins: [vue(), tsconfigPaths()]

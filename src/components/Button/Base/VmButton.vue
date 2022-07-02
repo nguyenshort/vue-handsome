@@ -36,8 +36,7 @@ interface VmButtonProps extends VmProps {
   block?: boolean
 }
 const props = withDefaults(defineProps<VmButtonProps>(), {
-  size: 'default',
-  ripple: ''
+  size: 'default'
 })
 
 import useDesign from "@composables/useDesign"

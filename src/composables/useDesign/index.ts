@@ -11,7 +11,7 @@ export default (props: Partial<VmProps>) => {
             { 'vm-component--success' : props.success }
         ],
         style: {
-            '--vs-color': getColor(props.color),
+            '--vm-color': getColor(props.color),
         }
     }))
 }
